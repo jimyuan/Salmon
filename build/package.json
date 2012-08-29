@@ -1,0 +1,6 @@
+{
+  "name": "Hollywin-official-website-build"
+, "version": "0.0.1"
+, "description": "build Hollywin official website pages"
+, "dependencies": { "hogan.js": "1.0.5-dev" }
+}
