@@ -9,5 +9,7 @@ I plan to use these open source technical below to develope the site.
 * mustache - honga.js
 * Bootstrap 2
 * Font-Awesome
+* LESS
+* lessc command tool
 
 Use git for code management and use github for code storage.
