@@ -1,0 +1,20 @@
+@import "../vandor/less/variables.less";
+
+/*re-Define bootstrap base set*/
+.navbar .nav > li > a{
+	font-size: 14px;
+	&:hover{
+		background-color:darken(@navbarBackgroundHighlight, 15%);
+		color: darken(@blue, 15%);
+	}
+}
+
+.navbar .brand {
+	width:120px; height:60px; 
+	padding:0; padding-right:@gridGutterWidth;
+	background: url(../img/logo.png) no-repeat center center;
+}
+
+body{
+	padding-top: @navbarHeight+@gridGutterWidth;
+}

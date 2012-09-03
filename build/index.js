@@ -7,36 +7,31 @@ var layout, pages
 
 // compile layout template
 layout = fs.readFileSync(__dirname + '/../templates/layout.mustache', 'utf-8')
-layout = hogan.compile(layout, { sectionTags: [{o:'_i', c:'i'}] })
+layout = hogan.compile(layout)
 
-// retrieve pages
-pages = fs.readdirSync(__dirname + '/../templates/pages')
+header = fs.readFileSync(__dirname + '/../templates/_header.mustache', 'utf-8')
+header = hogan.compile(header)
+
+footer = fs.readFileSync(__dirname + '/../templates/_footer.mustache', 'utf-8')
+footer = hogan.compile(footer)
+
 
 // iterate over pages
-pages.forEach(function (name) {
+fs.readdirSync(__dirname + '/../templates/pages').forEach(function (name) {
 
 	if (!name.match(/\.mustache$/)) return
 
-	var page = fs.readFileSync(__dirname  + '/../templates/pages/' + name, 'utf-8')
-		, context = {}
-
-	context[name.replace(/\.mustache$/, '')] = 'active'
-	context._i = true
-	context.production = prod
-	context.title = name
-		.replace(/\.mustache/, '')
-		.replace(/\-.*/, '')
-		.replace(/(.)/, function ($1) { return $1.toUpperCase() })
-
-	if (context.title == 'Index') {
-		context.title = title
-	} else {
-		context.title += ' · ' + title
-	}
-
-	page = hogan.compile(page, { sectionTags: [{o:'_i', c:'i'}] })
+	var page = fs.readFileSync(__dirname  + '/../templates/pages/' + name, 'utf-8');
+	var context ={page : true}
+	//context[name.replace(/\.mustache$/, '')] = ' class="active"';
+	var key=name.replace(/\.mustache$/, '').split("-");
+	context[key[0]]= ' class="active"';
+	if(key.length==2) context[key[1]]= ' class="active"';
+	page = hogan.compile(page)
 	page = layout.render(context, {
 		body: page
+		, header: header
+		, footer: footer
 	})
 
 	fs.writeFileSync(__dirname + '/../' + name.replace(/mustache$/, 'html'), page, 'utf-8')
