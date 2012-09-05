@@ -15,6 +15,22 @@ header = hogan.compile(header)
 footer = fs.readFileSync(__dirname + '/../templates/_footer.mustache', 'utf-8')
 footer = hogan.compile(footer)
 
+var seafood=[
+ 	{"img":"Marinated-Salmon-Portion", "name":"调味三文鱼块", "active": " active"}
+	,{"img":"Salmon-Skewer", "name":"烧烤三文鱼串"}
+	,{"img":"Light-Salted-Salmon", "name":"盐烧三文鱼"}
+	,{"img":"Stuffed-Salmon", "name":"三文鱼芝士夹心"}
+	,{"img":"Graved-Salmon", "name":"香草三文鱼"}
+	,{"img":"Salmon-Sashimi", "name":"三文鱼刺身"}
+	,{"img":"Salmon-Burger", "name":"三文鱼饼"}
+	,{"img":"Salmon-Sausage", "name":"三文鱼香肠"}
+	,{"img":"Teriyaki-Horse-Mackerel-Fillet", "name":"照烧挪威竹荚鱼"}
+	,{"img":"Select-Cold-Smoked-Salmon-Loin", "name":"精选冷熏三文鱼柳"}
+	,{"img":"Hot-Smoked-Salmon", "name":"热熏三文鱼"}
+	,{"img":"Horse-Mackerel-Fillet", "name":"开片挪威竹荚鱼"}
+	,{"img":"Cold-Smoked-Salmon", "name":"冷熏三文鱼"}
+]
+
 
 // iterate over pages
 fs.readdirSync(__dirname + '/../templates/pages').forEach(function (name) {
@@ -30,18 +46,13 @@ fs.readdirSync(__dirname + '/../templates/pages').forEach(function (name) {
 
 	//set homepage variable
 	if(name.match(/^index/)) {
-		context["items"]=[
-			 {"img":"Marinated-Salmon-Portion", "name":"调味三文鱼块", "active": " active"}
-			,{"img":"Salmon-Skewer", "name":"烧烤三文鱼串"}
-			,{"img":"Light-Salted-Salmon", "name":"盐烧三文鱼"}
-			,{"img":"Stuffed-Salmon", "name":"三文鱼芝士夹心"}
-			,{"img":"Graved-Salmon", "name":"香草三文鱼"}
-			,{"img":"Salmon-Sashimi", "name":"三文鱼刺身"}
-			,{"img":"Salmon-Burger", "name":"三文鱼饼"}
-			,{"img":"Salmon-Sausage", "name":"三文鱼香肠"}
-		];
+		context["items"]=[seafood[0],seafood[1],seafood[2],seafood[3],];
 		context["jszone"]=true;
 		context["script"]=key[0]
+	}
+
+	if(name.match(/^seafood/)){
+		context["pros"]=seafood;
 	}
 
 	page = hogan.compile(page)

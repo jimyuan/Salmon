@@ -9,6 +9,10 @@
 	}
 }
 
+.gap(){
+	margin-bottom: @gridGutterWidth;
+}
+
 .navbar .brand {
 	width:120px; height:60px; 
 	padding:0; padding-right:@gridGutterWidth;
@@ -17,4 +21,28 @@
 
 body{
 	padding-top: @navbarHeight+@gridGutterWidth;
+}
+
+#taobao{
+	.gap
+}
+
+#cook-brief{
+	background:#EEE;
+	height:140px;
+	h4{
+		line-height: 25px;
+		padding-left:5px;
+		background: #005189;
+		color:white;
+		margin:0;
+		font-size:14px;
+	}
+	div{
+		padding:5px 10px;
+	}
+}
+
+.foodlist{
+	.gap
 }
