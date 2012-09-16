@@ -9,5 +9,4 @@ $(function(){
 			.attr("alt", $("#myModalLabel").text());
 		}
 	});
-
 });

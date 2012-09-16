@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<title>Hollywin Seafood website</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
-<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>Hollywin Seafood website</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 
-	<link rel="stylesheet" href="public/css/bootstrap.css">
-	<link rel="stylesheet" href="public/css/docs.css">
-<!--[if IE 7]>
-	<link rel="stylesheet" href="public/css/font-awesome-ie7.css">
-<![endif]-->
-	<link rel="shortcut icon" href="public/ico/favicon.ico">
-</head>
+		<link rel="stylesheet" href="public/css/bootstrap.css">
+		<link rel="stylesheet" href="public/css/docs.css">
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="public/css/font-awesome-ie7.css">
+	<![endif]-->
+		<link rel="shortcut icon" href="public/ico/favicon.ico">
+	</head>
 
-<body>
-	{{>header}}
+	<body>
+		{{>header}}
 
-	<div class="container" id="content">
-		<div class="row">
-			{{>body}}
+		<div class="container" id="content">
+			<div class="row">
+				{{>body}}
+			</div>
 		</div>
-	</div>
 
-	{{>footer}}
+		{{>footer}}
 
-	<script src="public/js/jquery.js"></script>
-	<script src="public/js/bootstrap.js"></script>
-	{{#jszone}}
-	<script src="public/js/{{script}}.js"></script>
-	{{/jszone}}
-</body>
+		<script src="public/js/jquery.js"></script>
+		<script src="public/js/bootstrap.js"></script>
+		{{{add_script}}}
+		{{#jszone}}
+		<script src="public/js/{{script}}.js"></script>
+		{{/jszone}}
+	</body>
 </html>

@@ -15,8 +15,8 @@ header = hogan.compile(header)
 footer = fs.readFileSync(__dirname + '/../templates/_footer.mustache', 'utf-8')
 footer = hogan.compile(footer)
 
-aboutNav = fs.readFileSync(__dirname + '/../templates/_about-nav.mustache', 'utf-8')
-aboutNav = hogan.compile(aboutNav)
+about_nav = fs.readFileSync(__dirname + '/../templates/_about-nav.mustache', 'utf-8')
+about_nav = hogan.compile(about_nav)
 
 var seafood=[
  	{"img":"Marinated-Salmon-Portion", "name":"调味三文鱼块", "active": " active"}
@@ -61,9 +61,17 @@ fs.readdirSync(__dirname + '/../templates/pages').forEach(function (name) {
 		context["script"]=key[0]
 	}
 
+	//about-contact page
+	if(name.match(/^about-contact/)){
+		context["add_script"]='<script src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>';
+		context["jszone"]=true;
+		context["script"]=name.replace(/\.mustache$/, '');
+	}
+
 	page = hogan.compile(page)
 	page = layout.render(context, {
 		body: page
+		, about_nav: about_nav
 		, header: header
 		, footer: footer
 	})
