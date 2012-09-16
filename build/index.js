@@ -15,6 +15,9 @@ header = hogan.compile(header)
 footer = fs.readFileSync(__dirname + '/../templates/_footer.mustache', 'utf-8')
 footer = hogan.compile(footer)
 
+aboutNav = fs.readFileSync(__dirname + '/../templates/_about-nav.mustache', 'utf-8')
+aboutNav = hogan.compile(aboutNav)
+
 var seafood=[
  	{"img":"Marinated-Salmon-Portion", "name":"调味三文鱼块", "active": " active"}
 	,{"img":"Salmon-Skewer", "name":"烧烤三文鱼串"}
@@ -51,8 +54,11 @@ fs.readdirSync(__dirname + '/../templates/pages').forEach(function (name) {
 		context["script"]=key[0]
 	}
 
+	//seafood page
 	if(name.match(/^seafood/)){
 		context["pros"]=seafood;
+		context["jszone"]=true;
+		context["script"]=key[0]
 	}
 
 	page = hogan.compile(page)

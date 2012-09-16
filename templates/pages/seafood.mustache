@@ -1,7 +1,28 @@
+<div class="span12">
+	<ul class="breadcrumb">
+		<li><a href="./">首页</a> <span class="divider">/</span></li>
+		<li class="active">产品系列</li>
+	</ul>
+</div>
 {{#pros}}
 <div class="span3 foodlist">
-	<a href="#">
-		<img src="public/img/{{{img}}}.jpg" alt="{{name}}">
-	</a>
+	<img src="public/img/t_{{img}}.jpg" alt="{{name}}">
+	<div class="tip-mask" style="display:none;">
+		<span>{{name}}</span>
+		<a href="#"><i class="pull-right icon-shopping-cart"></i></a>
+	</div>
 </div>
 {{/pros}}
+<div class="modal hide fade" id="seafoodModal">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3 id="myModalLabel"></h3>
+	</div>
+	<div class="modal-body food-img">
+		<img src="" alt="">
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+		<a class="btn btn-primary" href="#"><i class="icon-shopping-cart"></i> 购买</a>
+	</div>
+</div>
