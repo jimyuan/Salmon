@@ -9,7 +9,7 @@
 	//创建地图函数：
 	function createMap(){
 		var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-		var point = new BMap.Point(121.474694,30.972526);//定义一个中心点坐标
+		var point = new BMap.Point(121.471774, 30.973145);//定义一个中心点坐标
 		map.centerAndZoom(point,16);//设定地图的中心点和坐标并将地图显示在地图容器中
 		window.map = map;//将map变量存储在全局
 	}
@@ -28,8 +28,8 @@
 	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
 	map.addControl(ctrl_nav);
 		//向地图中添加缩略图控件
-	var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
-	map.addControl(ctrl_ove);
+	// var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+	// map.addControl(ctrl_ove);
 		//向地图中添加比例尺控件
 	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
 	map.addControl(ctrl_sca);
